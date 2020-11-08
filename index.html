@@ -3,18 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet" />
+    
+    <!-- Own styles -->
     <link rel="stylesheet" href="styles.css">
     <title>Simon Says</title>
 </head>
-<body>
-    <div class="gameboard">
-        <div id="celeste" class="color celeste left" data-color="celeste"></div>
-        <div id="violeta" class="color violeta right" data-color="violeta"></div>
-        <div id="naranja" class="color naranja left" data-color="naranja"></div>
-        <div id="verde" class="color verde right" data-color="verde"></div>
-        <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar</button>
+<body class="special-color #37474F">
+    <header id="title game" class="text-center special-color-dark #263238">
+        <h1>
+            Simon Says
+        </h1>
+    </header>
+    <section id="game" 
+        <div class="gameboard" style="display: block;">
+            <div id="celeste" class="color celeste left" data-color="celeste"></div>
+            <div id="violeta" class="color violeta right" data-color="violeta"></div>
+            <div id="naranja" class="color naranja left" data-color="naranja"></div>
+            <div id="verde" class="color verde right" data-color="verde"></div>
+            <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Let's play !!!</button>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="starting-game-modal" tabindex="-1" role="dialog" aria-labelledby="startingModalLabel" aria-hidden="true">
+        <div class="modal-dialog text-center modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title w-100" id="exampleModalLabel">Symon Says</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Use the cursor to repeat the sequence of colors presented on the game board.
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Play</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- /Modal -->
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark #263238 fixed-bottom">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            is a simple Simon Says game created in Vanilla JavaScript using Object-oriented programming for the principal game logic.</div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <!-- Sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Game scprit -->
     <script src="index.js"></script>
 </body>
 </html>

@@ -4,12 +4,12 @@ const naranja = document.getElementById('naranja');
 const verde = document.getElementById('verde');
 const btnEmpezar = document.getElementById('btnEmpezar');
 const ULTIMO_NIVEL = 10;
-
-class Juego {
-  constructor() {
-    this.inicializar = this.inicializar.bind(this);
-    this.inicializar();
-    this.generarSecuencia();
+  
+  class Juego {
+    constructor() {
+      this.inicializar = this.inicializar.bind(this);
+      this.inicializar();
+      this.generarSecuencia();
     setTimeout(() => {
       this.siguenteNivel();
     }, 500);
@@ -82,13 +82,13 @@ class Juego {
   ilumarSecuencia(){
     for (let i = 0 ; i < this.nivel ; i++){
       const color = this.transformarNumeroAColor(this.secuencia[i]);
-      setTimeout(() => this.iluminarColor(color), 1000 * i);
+      setTimeout(() => this.iluminarColor(color), 500 * i);
     }
   }
 
   iluminarColor(color){
     this.colores[color].classList.add('light');
-    setTimeout(() => this.apagarColor(color), 350);
+    setTimeout(() => this.apagarColor(color), 150);
   }
 
   apagarColor(color){
@@ -137,15 +137,28 @@ class Juego {
   }
 
   ganoElJuego(){
-    swal('David', 'Felicitaciones, ganaste el juego', 'success')
-    .then(this.inicializar);
-  }
-
-  perdioElJuego(){
-    swal('David', 'Lo lamento, perdiste :(', 'error')
+    swal({
+      title: 'Awesome !!',
+      text: 'You win !!',
+      icon: 'success',
+      buttons: 'Play again'
+    })
     .then(() => {
       this.eliminarEventosClick();
       this.inicializar();
+      empezarJuego();
+    });
+  }
+  perdioElJuego(){
+    swal({
+      title: 'You lose !!',
+      icon: 'error',
+      buttons: 'Play again'
+    })
+    .then(() => {
+      this.eliminarEventosClick();
+      this.inicializar();
+      empezarJuego();
     });
   }
 
@@ -154,3 +167,8 @@ class Juego {
 function empezarJuego() {
   this.juego = new Juego();
 }
+
+$('#starting-game-modal').modal();
+$('#starting-game-modal').on('hidden.bs.modal', function(e){
+  empezarJuego();
+});
