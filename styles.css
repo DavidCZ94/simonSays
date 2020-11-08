@@ -2,6 +2,7 @@
     margin: 0;
     /* background: #dedede; */
     /* display: flex;  */
+    background-color: black;
     align-items: center;
     height: 100vh;
   }
